@@ -17,7 +17,7 @@
             "ioValues": [
                 {
                     "name": "number or geometry",
-                    "ioValue": "532494d2-c3c4-4a4e-969a-f44a73d8630b"
+                    "ioValue": "9fa6800f-3a97-44fc-a51e-326394673b54"
                 }
             ],
             "description": "Connect geometry here to make it available in the next level up. "
@@ -33,14 +33,39 @@
             "fileName": "MakerCAM Project.svg",
             "type": "SVG",
             "SVGwidth": 10
+        },
+        {
+            "atomType": "Extrude",
+            "name": "Extrude",
+            "x": 0.6302910052910052,
+            "y": 0.4944134078212291,
+            "uniqueID": "9fa6800f-3a97-44fc-a51e-326394673b54",
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": "532494d2-c3c4-4a4e-969a-f44a73d8630b"
+                },
+                {
+                    "name": "height",
+                    "ioValue": 2
+                }
+            ],
+            "description": "Extrudes a 2D shape. Input can be negitive. "
         }
     ],
     "allConnectors": [
         {
             "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": true,
+            "ap1ID": "532494d2-c3c4-4a4e-969a-f44a73d8630b",
+            "ap2ID": "9fa6800f-3a97-44fc-a51e-326394673b54"
+        },
+        {
+            "ap1Name": "geometry",
             "ap2Name": "number or geometry",
             "ap2Primary": false,
-            "ap1ID": "532494d2-c3c4-4a4e-969a-f44a73d8630b",
+            "ap1ID": "9fa6800f-3a97-44fc-a51e-326394673b54",
             "ap2ID": "bcc613eb-27e2-431c-9d0a-cee2acff3de6"
         }
     ],
