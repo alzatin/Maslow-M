@@ -1,14 +1,49 @@
 {
     "atomType": "Molecule",
-    "name": "Maslow M",
+    "name": "Maslow-M",
     "x": 0,
     "y": 0,
     "uniqueID": "b8ee3a55-1a3e-4671-9953-7f2e8695f621",
     "ioValues": [],
     "description": "Molecules provide an organizational structure to contain atoms. Double click on a molecule to enter it. Use the up arrow in the upper right hand corner of the screen to go up one level.",
     "topLevel": true,
-    "allAtoms": [],
-    "allConnectors": [],
+    "allAtoms": [
+        {
+            "atomType": "Output",
+            "name": "Output",
+            "x": 0.98,
+            "y": 0.5,
+            "uniqueID": "bcc613eb-27e2-431c-9d0a-cee2acff3de6",
+            "ioValues": [
+                {
+                    "name": "number or geometry",
+                    "ioValue": "532494d2-c3c4-4a4e-969a-f44a73d8630b"
+                }
+            ],
+            "description": "Connect geometry here to make it available in the next level up. "
+        },
+        {
+            "atomType": "Import",
+            "name": "Import",
+            "x": 0.28968253968253965,
+            "y": 0.41899441340782123,
+            "uniqueID": "532494d2-c3c4-4a4e-969a-f44a73d8630b",
+            "ioValues": [],
+            "description": "Import Atom, let's you choose a type of file to import and use in your design.",
+            "fileName": "MakerCAM Project.svg",
+            "type": "SVG",
+            "SVGwidth": 10
+        }
+    ],
+    "allConnectors": [
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "number or geometry",
+            "ap2Primary": false,
+            "ap1ID": "532494d2-c3c4-4a4e-969a-f44a73d8630b",
+            "ap2ID": "bcc613eb-27e2-431c-9d0a-cee2acff3de6"
+        }
+    ],
     "unitsKey": "MM",
     "fileTypeVersion": 1,
     "compiledBom": {},
