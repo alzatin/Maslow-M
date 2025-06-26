@@ -22,7 +22,7 @@
             "ioValues": [
                 {
                     "name": "number or geometry",
-                    "ioValue": "c58f8626-04d8-459e-824c-e39b894c0183"
+                    "ioValue": "60cbff66-4355-4f0b-befe-2379cbc3ba12"
                 }
             ],
             "description": "Connect geometry here to make it available in the next level up. "
@@ -40,48 +40,6 @@
             "SVGwidth": 10
         },
         {
-            "atomType": "Extrude",
-            "name": "Extrude",
-            "x": 0.6005291005291005,
-            "y": 0.19553072625698326,
-            "uniqueID": "9fa6800f-3a97-44fc-a51e-326394673b54",
-            "ioValues": [
-                {
-                    "name": "geometry",
-                    "ioValue": "532494d2-c3c4-4a4e-969a-f44a73d8630b"
-                },
-                {
-                    "name": "height",
-                    "ioValue": 2
-                }
-            ],
-            "description": "Extrudes a 2D shape. Input can be negitive. "
-        },
-        {
-            "atomType": "Code",
-            "name": "Code",
-            "x": 0.4966931216931217,
-            "y": 0.7039106145251396,
-            "uniqueID": "c58f8626-04d8-459e-824c-e39b894c0183",
-            "ioValues": [
-                {
-                    "name": "inputShape",
-                    "ioValue": "532494d2-c3c4-4a4e-969a-f44a73d8630b"
-                },
-                {
-                    "name": "dist",
-                    "ioValue": 10
-                },
-                {
-                    "name": "height",
-                    "ioValue": 10
-                }
-            ],
-            "description": "Defines a Replicad code block.",
-            "codeVersion": 1,
-            "code": " \n      //Inputs:[inputShape, dist, height]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n      \n      //Takes the address and gets the shape from the library\n      let importedShape = library[inputShape]\n      \n      //This makes a new copy of of the shape (to prevent garbage collection issues),\n      //and moves it in the X direction. Note that this will not work if the input is an assembly\n      let movedShape = importedShape.geometry[0].clone().translate([dist,0,0])\n\n      let scaledShape = await Scale(inputShape, 10);\n      \n      //Console.log works for debugging to better see what is happening under the hood\n      console.log(\"Shape:\")\n      console.log(importedShape);\n      console.log(scaledShape);\n      \n      //Shapes stored in the library have tags, a color, a plane, and a bill of materials like this. We don't modify them here\n      let shape1 = {\n        geometry: [scaledShape],\n        tags: importedShape.tags,\n        color: importedShape.color,\n        plane: importedShape.plane,\n        bom: importedShape.bom\n      }\n      \n      //We could at this point return shape1 as a complete shape and it will be automatically written to the library for us\n      //return shape1\n      \n      //We can also create a new shape from scratch\n      let createdRectangle = replicad.drawRectangle(5,7)\n      //This is the plane we are going to put our new shape on\n      const newPlane = new replicad.Plane().pivot(0, 'Y');\n      //And we extrude the shape to make it 3D\n      let createdShape = createdRectangle.sketchOnPlane(newPlane).extrude(height)\n      \n      //For our new geometry we need to define the tags, color, plane, etc\n      let shape2 = {\n          geometry: [createdShape], \n          tags: [\"aTag\"],\n          color: '#A3CE5B',\n          plane: newPlane,\n          bom: []\n      }\n      \n      //Then we can return our created shape in just the same way\n      //return shape2\n      \n      //If we want to return both shapes at once, we can create an assembly with them\n      let anAssembly = {\n        geometry: [shape1, shape2], \n        tags: [\"aNewTag\"],\n        color: '#A3CF5B',\n        plane: newPlane,\n        bom: []\n      }\n      \n      //And we can return that in the same way\n      return anAssembly\n      \n      \n          /**\n          To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n          If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n          Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n          https://replicad.xyz/docs/introapp/UserGuide.html \n          Return a replicad object that includes geometry, color, tags and plane. \n      \n      \n          Example Code Atom:\n      \n            Inputs:[shape, x];\n      \n            let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n      \n            return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n      \n            - See more examples at _______ \n      \n      \n          */\n      "
-        },
-        {
             "atomType": "Input",
             "name": "Size",
             "x": 0.024749999999999998,
@@ -90,28 +48,150 @@
             "ioValues": [],
             "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
             "type": "number"
+        },
+        {
+            "atomType": "GitHubMolecule",
+            "name": "Scale",
+            "x": 0.5687830687830687,
+            "y": 0.5865921787709497,
+            "uniqueID": "60cbff66-4355-4f0b-befe-2379cbc3ba12",
+            "ioValues": [
+                {
+                    "name": "Geometry",
+                    "ioValue": "532494d2-c3c4-4a4e-969a-f44a73d8630b"
+                },
+                {
+                    "name": "Scale Factor",
+                    "ioValue": 10
+                }
+            ],
+            "description": "Molecules provide an organizational structure to contain atoms. Double click on a molecule to enter it. Use the up arrow in the upper right hand corner of the screen to go up one level.",
+            "topLevel": false,
+            "allAtoms": [
+                {
+                    "atomType": "Output",
+                    "name": "Output",
+                    "x": 0.98,
+                    "y": 0.5,
+                    "uniqueID": "694438bf-120a-46fd-8925-71adc5319b3f",
+                    "ioValues": [
+                        {
+                            "name": "number or geometry",
+                            "ioValue": "6a67f842-a533-4333-aaf8-e3181d1a2841"
+                        }
+                    ],
+                    "description": "Connect geometry here to make it available in the next level up. "
+                },
+                {
+                    "atomType": "Input",
+                    "name": "Geometry",
+                    "x": 0.024749999999999998,
+                    "y": 0.4692737430167598,
+                    "uniqueID": "787df646-e1b0-476c-ae91-57e95552545e",
+                    "ioValues": [],
+                    "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
+                    "type": "number"
+                },
+                {
+                    "atomType": "Input",
+                    "name": "Scale Factor",
+                    "x": 0.024749999999999998,
+                    "y": 0.6508379888268156,
+                    "uniqueID": "bc3fd1b8-8462-48c8-8fe4-26793e2f6551",
+                    "ioValues": [],
+                    "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
+                    "type": "number"
+                },
+                {
+                    "atomType": "Code",
+                    "name": "Code",
+                    "x": 0.4226190476190476,
+                    "y": 0.25139664804469275,
+                    "uniqueID": "6a67f842-a533-4333-aaf8-e3181d1a2841",
+                    "ioValues": [
+                        {
+                            "name": "inputShape",
+                            "ioValue": "532494d2-c3c4-4a4e-969a-f44a73d8630b"
+                        },
+                        {
+                            "name": "scaleFactor",
+                            "ioValue": 10
+                        }
+                    ],
+                    "description": "Defines a Replicad code block.",
+                    "codeVersion": 1,
+                    "code": " \n      //Inputs:[inputShape, scaleFactor]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n      \n      //Takes the address and gets the shape from the library\n      let importedShape = library[inputShape]\n\n      let scaledShape = await Scale(inputShape, scaleFactor);\n      \n      \n      //Shapes stored in the library have tags, a color, a plane, and a bill of materials like this. We don't modify them here\n      let shape1 = {\n        geometry: [scaledShape],\n        tags: importedShape.tags,\n        color: importedShape.color,\n        plane: importedShape.plane,\n        bom: importedShape.bom\n      }\n      \n      return shape1\n      \n      \n      \n          /**\n          To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n          If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n          Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n          https://replicad.xyz/docs/introapp/UserGuide.html \n          Return a replicad object that includes geometry, color, tags and plane. \n      \n      \n          Example Code Atom:\n      \n            Inputs:[shape, x];\n      \n            let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n      \n            return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n      \n            - See more examples at _______ \n      \n      \n          */\n      "
+                }
+            ],
+            "allConnectors": [
+                {
+                    "ap1Name": "number or geometry",
+                    "ap2Name": "inputShape",
+                    "ap2Primary": false,
+                    "ap1ID": "787df646-e1b0-476c-ae91-57e95552545e",
+                    "ap2ID": "6a67f842-a533-4333-aaf8-e3181d1a2841"
+                },
+                {
+                    "ap1Name": "number or geometry",
+                    "ap2Name": "scaleFactor",
+                    "ap2Primary": false,
+                    "ap1ID": "bc3fd1b8-8462-48c8-8fe4-26793e2f6551",
+                    "ap2ID": "6a67f842-a533-4333-aaf8-e3181d1a2841"
+                },
+                {
+                    "ap1Name": "geometry",
+                    "ap2Name": "number or geometry",
+                    "ap2Primary": false,
+                    "ap1ID": "6a67f842-a533-4333-aaf8-e3181d1a2841",
+                    "ap2ID": "694438bf-120a-46fd-8925-71adc5319b3f"
+                }
+            ],
+            "parentRepo": {
+                "privateRepo": false,
+                "repoName": "Scale",
+                "dateCreated": "2025-06-26T17:06:11Z",
+                "readMe": "https://raw.githubusercontent.com/BarbourSmith/Scale/master/README.md?sanitize=true",
+                "yyyy": 2025,
+                "topMoleculeID": "4b6bc40a-44a9-438a-9ed9-ba4910815d8d",
+                "githubMoleculesUsed": [],
+                "html_url": "https://github.com/BarbourSmith/Scale",
+                "topics": [],
+                "parentRepo": null,
+                "forks": 0,
+                "dateModified": "739428",
+                "ranking": 0,
+                "searchField": "scale barboursmith scales the input 2d or 3d geometry by the scale factor ",
+                "owner": "BarbourSmith",
+                "description": "Scales the input 2D or 3D geometry by the scale factor",
+                "contentURL": "https://raw.githubusercontent.com/BarbourSmith/Scale/master/project.abundance?sanitize=true",
+                "svgURL": "https://raw.githubusercontent.com/BarbourSmith/Scale/master/project.svg?sanitize=true",
+                "isLocal": false
+            },
+            "unitsKey": "Unitless",
+            "fileTypeVersion": 1,
+            "compiledBom": []
         }
     ],
     "allConnectors": [
         {
             "ap1Name": "geometry",
-            "ap2Name": "geometry",
-            "ap2Primary": true,
-            "ap1ID": "532494d2-c3c4-4a4e-969a-f44a73d8630b",
-            "ap2ID": "9fa6800f-3a97-44fc-a51e-326394673b54"
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "inputShape",
+            "ap2Name": "Geometry",
             "ap2Primary": false,
             "ap1ID": "532494d2-c3c4-4a4e-969a-f44a73d8630b",
-            "ap2ID": "c58f8626-04d8-459e-824c-e39b894c0183"
+            "ap2ID": "60cbff66-4355-4f0b-befe-2379cbc3ba12"
         },
         {
-            "ap1Name": "geometry",
+            "ap1Name": "number or geometry",
+            "ap2Name": "Scale Factor",
+            "ap2Primary": false,
+            "ap1ID": "9a4ba9c3-d9cb-4001-a97f-747c6cf485af",
+            "ap2ID": "60cbff66-4355-4f0b-befe-2379cbc3ba12"
+        },
+        {
+            "ap1Name": "Geometry",
             "ap2Name": "number or geometry",
             "ap2Primary": false,
-            "ap1ID": "c58f8626-04d8-459e-824c-e39b894c0183",
+            "ap1ID": "60cbff66-4355-4f0b-befe-2379cbc3ba12",
             "ap2ID": "bcc613eb-27e2-431c-9d0a-cee2acff3de6"
         }
     ],
