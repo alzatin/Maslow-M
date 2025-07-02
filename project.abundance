@@ -22,22 +22,10 @@
             "ioValues": [
                 {
                     "name": "number or geometry",
-                    "ioValue": "532494d2-c3c4-4a4e-969a-f44a73d8630b"
+                    "ioValue": "c80ba0fc-1085-4371-adf1-8bcaa423a758"
                 }
             ],
             "description": "Connect geometry here to make it available in the next level up. "
-        },
-        {
-            "atomType": "Import",
-            "name": "Import",
-            "x": 0.2923280423280423,
-            "y": 0.4162011173184358,
-            "uniqueID": "532494d2-c3c4-4a4e-969a-f44a73d8630b",
-            "ioValues": [],
-            "description": "Import Atom, let's you choose a type of file to import and use in your design.",
-            "fileName": "MakerCAM Project.svg",
-            "type": "SVG",
-            "SVGwidth": 10
         },
         {
             "atomType": "Input",
@@ -48,14 +36,63 @@
             "ioValues": [],
             "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
             "type": "number"
+        },
+        {
+            "atomType": "Molecule",
+            "name": "New Molecule",
+            "x": 0.3423280423280423,
+            "y": 0.3662011173184358,
+            "uniqueID": "c80ba0fc-1085-4371-adf1-8bcaa423a758",
+            "ioValues": [],
+            "description": "Molecules provide an organizational structure to contain atoms. Double click on a molecule to enter it. Use the up arrow in the upper right hand corner of the screen to go up one level.",
+            "topLevel": false,
+            "allAtoms": [
+                {
+                    "atomType": "Output",
+                    "name": "Output",
+                    "x": 0.98,
+                    "y": 0.5,
+                    "uniqueID": "fbb926c3-24a4-42aa-b2ab-bfacf8c3e7cc",
+                    "ioValues": [
+                        {
+                            "name": "number or geometry",
+                            "ioValue": "732e8c9e-50a3-49bc-b72b-91fd0f432f26"
+                        }
+                    ],
+                    "description": "Connect geometry here to make it available in the next level up. "
+                },
+                {
+                    "atomType": "Import",
+                    "name": "Import",
+                    "x": 0.3423280423280423,
+                    "y": 0.3662011173184358,
+                    "uniqueID": "732e8c9e-50a3-49bc-b72b-91fd0f432f26",
+                    "ioValues": [],
+                    "description": "Import Atom, let's you choose a type of file to import and use in your design.",
+                    "fileName": "MakerCAM Project.svg",
+                    "type": "SVG",
+                    "SVGwidth": 10
+                }
+            ],
+            "allConnectors": [
+                {
+                    "ap1Name": "geometry",
+                    "ap2Name": "number or geometry",
+                    "ap2Primary": false,
+                    "ap1ID": "732e8c9e-50a3-49bc-b72b-91fd0f432f26",
+                    "ap2ID": "fbb926c3-24a4-42aa-b2ab-bfacf8c3e7cc"
+                }
+            ],
+            "fileTypeVersion": 1,
+            "compiledBom": {}
         }
     ],
     "allConnectors": [
         {
-            "ap1Name": "geometry",
+            "ap1Name": "Geometry",
             "ap2Name": "number or geometry",
             "ap2Primary": false,
-            "ap1ID": "532494d2-c3c4-4a4e-969a-f44a73d8630b",
+            "ap1ID": "c80ba0fc-1085-4371-adf1-8bcaa423a758",
             "ap2ID": "bcc613eb-27e2-431c-9d0a-cee2acff3de6"
         }
     ],
