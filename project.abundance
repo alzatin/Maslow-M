@@ -30,7 +30,7 @@
         {
             "atomType": "Input",
             "name": "Size",
-            "x": 0.025384615384615384,
+            "x": 0.04785,
             "y": 0.7374301675977654,
             "uniqueID": "9a4ba9c3-d9cb-4001-a97f-747c6cf485af",
             "ioValues": [],
@@ -64,20 +64,8 @@
                 {
                     "atomType": "Import",
                     "name": "Import",
-                    "x": 0.358600583090379,
-                    "y": 0.3704819277108434,
-                    "uniqueID": "732e8c9e-50a3-49bc-b72b-91fd0f432f26",
-                    "ioValues": [],
-                    "description": "Import Atom, let's you choose a type of file to import and use in your design.",
-                    "fileName": "MakerCAM Project.svg",
-                    "type": "SVG",
-                    "SVGwidth": 9
-                },
-                {
-                    "atomType": "Import",
-                    "name": "Import",
-                    "x": 0.3497797356828194,
-                    "y": 0.7048192771084337,
+                    "x": 0.35391693115234374,
+                    "y": 0.5436598241800998,
                     "uniqueID": "58b98dec-4155-4c8a-8895-9b2c59103eda",
                     "ioValues": [],
                     "description": "Import Atom, let's you choose a type of file to import and use in your design.",
