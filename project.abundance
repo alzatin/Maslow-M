@@ -89,6 +89,18 @@
                     "ioValues": [],
                     "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
                     "type": "geometry"
+                },
+                {
+                    "atomType": "Import",
+                    "name": "Import",
+                    "x": 0.5681399631675875,
+                    "y": 0.39759036144578314,
+                    "uniqueID": "fdc52c7e-6edb-4e91-b633-70b6b5adc1e1",
+                    "ioValues": [],
+                    "description": "Import Atom, let's you choose a type of file to import and use in your design.",
+                    "fileName": null,
+                    "type": null,
+                    "SVGwidth": 10
                 }
             ],
             "allConnectors": [
