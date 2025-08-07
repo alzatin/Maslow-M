@@ -30,7 +30,7 @@
         {
             "atomType": "Input",
             "name": "Size",
-            "x": 0.04785,
+            "x": 0.0264,
             "y": 0.7374301675977654,
             "uniqueID": "9a4ba9c3-d9cb-4001-a97f-747c6cf485af",
             "ioValues": [],
@@ -39,11 +39,16 @@
         },
         {
             "atomType": "Molecule",
-            "name": "New Molecule",
-            "x": 0.3423280423280423,
-            "y": 0.3662011173184358,
+            "name": "Maslow m ",
+            "x": 0.4033149171270718,
+            "y": 0.3373493975903614,
             "uniqueID": "c80ba0fc-1085-4371-adf1-8bcaa423a758",
-            "ioValues": [],
+            "ioValues": [
+                {
+                    "name": "Size",
+                    "ioValue": 10
+                }
+            ],
             "description": "Molecules provide an organizational structure to contain atoms. Double click on a molecule to enter it. Use the up arrow in the upper right hand corner of the screen to go up one level.",
             "topLevel": false,
             "allAtoms": [
@@ -64,16 +69,26 @@
                 {
                     "atomType": "Import",
                     "name": "Import",
-                    "x": 0.35391693115234374,
-                    "y": 0.5436598241800998,
+                    "x": 0.3453038674033149,
+                    "y": 0.5331325301204819,
                     "uniqueID": "58b98dec-4155-4c8a-8895-9b2c59103eda",
                     "ioValues": [],
                     "description": "Import Atom, let's you choose a type of file to import and use in your design.",
-                    "fileName": "fork.svg",
+                    "fileName": "Maslow Logo With R.svg",
                     "type": "SVG",
                     "SVGwidth": 10,
                     "repoOwner": "alzatin",
                     "repoName": "Maslow-M"
+                },
+                {
+                    "atomType": "Input",
+                    "name": "Size",
+                    "x": 0.0264,
+                    "y": 0.3373493975903614,
+                    "uniqueID": "de74ec46-dfff-43e7-8ec5-9d20ccc631c6",
+                    "ioValues": [],
+                    "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
+                    "type": "geometry"
                 }
             ],
             "allConnectors": [
@@ -90,6 +105,13 @@
         }
     ],
     "allConnectors": [
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "Size",
+            "ap2Primary": false,
+            "ap1ID": "9a4ba9c3-d9cb-4001-a97f-747c6cf485af",
+            "ap2ID": "c80ba0fc-1085-4371-adf1-8bcaa423a758"
+        },
         {
             "ap1Name": "Geometry",
             "ap2Name": "number or geometry",
